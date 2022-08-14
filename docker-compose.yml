@@ -1,0 +1,57 @@
+version: '1.0'
+
+services:
+  mongo1:
+    container_name: mongo1
+    image: mongo:5.0.10
+    volumes:
+      - ~/mongors/data1:/data/db
+      - ./rs-init.sh:/scripts/rs-init.sh
+    networks:
+      - mongors-network
+    ports:
+      - 27021:27017
+    links:
+      - mongo2
+      - mongo3
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+  mongo2:
+    container_name: mongo2
+    image: mongo:5.0.10
+    volumes:
+      - ~/mongors/data2:/data/db
+    networks:
+      - mongors-network
+    ports:
+      - 27022:27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+  mongo3:
+    container_name: mongo3
+    image: mongo:5.0.10
+    volumes:
+      - ~/mongors/data3:/data/db
+    networks:
+      - mongors-network
+    ports:
+      - 27023:27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+  worker:
+    container_name: twitter-cve2db
+    build: worker
+    networks:
+      - mongors-network
+    restart: always
+    environment:
+      - BEARER_TOKEN=${BEARER_TOKEN}
+      - TWITTER_USERNAME=${TWITTER_USERNAME}
+      - TWEETS_REQ_LIMIT=${TWEETS_REQ_LIMIT}
+      - INTERVAL=${INTERVAL}
+      - MONGODB=${MONGODB}    
+    entrypoint: [ "node","twitter2db-worker.js" ]
+
+networks:
+  mongors-network:
+    driver: bridge

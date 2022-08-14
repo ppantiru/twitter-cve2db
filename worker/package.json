@@ -1,0 +1,21 @@
+{
+  "name": "twitter-cve-to-db",
+  "version": "1.0.0",
+  "description": "Store the CVE feed to mongo cluster",
+  "main": "twitterToDb-worker.js",
+  "scripts": {
+    "start": "node twitterToDb-worker",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CVE",
+    "twitter"
+  ],
+  "author": "Paul Pantiru",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "mongoose": "^6.5.2",
+    "twitter-api-v2": "^1.12.3"
+  }
+}
