@@ -12,14 +12,19 @@ BEARER_TOKEN env variable is required for the worker to function
 BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAHn6fgEAAAasfsasafsafsdfsafsafsadfsafasfdsafsadfasfsadfsdfsasafsdfsafsa
 ###
 #Twitter username to extract tweets from | default CVENew
+
 TWITTER_USERNAME=CVENew
 ###
 #Max tweets to get per request ( must be between 5 and 100 ) | default: 100
+
 TWEETS_REQ_LIMIT=10
 ###
 #How often to check for new tweets; in minutes | default: 30
+
 INTERVAL=.5
 ###
 #MongoDB URI
+
 #MONGODB=mongodb://localhost:27017/cve
+
 MONGODB='mongodb://mongo1:27017,mongo2:27017,mongo3:27017/cve?replicaSet=dbrs&retryWrites=true&w=majority'
