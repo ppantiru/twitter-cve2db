@@ -1,6 +1,10 @@
 # twitter-cve2db
 System composed of a mongodb replica set and a worker that keeps the db up to date with the CVE feed.
 
+Architecture
+![cve2db-architecture](https://user-images.githubusercontent.com/8590004/184642927-dc604479-7131-45ac-a12a-287cc6b94aa8.jpg)
+
+
 To deploy run the start.sh script
 
 BEARER_TOKEN env variable is required for the worker to function
