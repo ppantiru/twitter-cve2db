@@ -1,5 +1,5 @@
 # twitter-cve2db
-System composed of a mongodb replica set and a worker that keeps the db up to date with the CVE feed.
+A system composed of a mongodb replica set and a worker that keeps the db up to date with the CVE feed.
 
 Architecture
 ![cve2db-architecture](https://user-images.githubusercontent.com/8590004/184642927-dc604479-7131-45ac-a12a-287cc6b94aa8.jpg)
@@ -13,7 +13,7 @@ Prerequisite:
 
 Usage:
 
-To deploy run the start.sh script:
+To deploy, run the start.sh script:
 
 ```
 ./start.sh
@@ -51,7 +51,7 @@ MONGODB='mongodb://admin:password@mongo1:27017,mongo2:27017,mongo3:27017/cve?aut
 
 Security:
 
-Ths databse is set to uses a basic filekey authentication which is not recommended for production use,
-but if you diceide to use it as is remember to at least change the password (default user and password is set in the `rs-init.sh` file)
+The databse is set to uses a basic filekey authentication which is not recommended for production use,
+but if you decide to use it as is remember to at least change the password (default user and password is set in the `rs-init.sh` file)
 
 The worker itself does not expose any ports.
