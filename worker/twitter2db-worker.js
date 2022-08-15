@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const bearer = process.env.BEARER_TOKEN
 const mongodb = process.env.MONGODB || 'mongodb://mongo1:27017,mongo2:27017,mongo3:27017/cve?replicaSet=dbrs&retryWrites=true&w=majority'
 const twitterUsername = process.env.TWITTER_USERNAME || 'CVENew'
-const maxTwittsPerRequest = process.env.TWEETS_REQ_LIMIT || 10
+const tweetsPerRequest = process.env.TWEETS_REQ || 10
+const maxTwittsPerRequest = process.env.TWEETS_REQ_LIMIT || 100
 const timeoutInterval = process.env.INTERVAL || 30
 
 const twitterClient = new TwitterApi(bearer);
@@ -62,7 +63,7 @@ async function checkIfTweetExistsInDB (tweetId){
     }
 }
 
-async function fetchTweets(userID, options={ "max_results": 5, "exclude": "replies", "tweet.fields": ['id','created_at','text','entities']}){
+async function fetchTweets(userID, options={ "max_results": tweetsPerRequest, "exclude": "replies", "tweet.fields": ['id','created_at','text','entities']}){
     try{
         const timeline = await roClient.v2.userTimeline(userID, options)
         const oldestTweetId =  timeline?.meta?.oldest_id

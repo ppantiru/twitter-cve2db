@@ -50,6 +50,7 @@ services:
     environment:
       - BEARER_TOKEN=${BEARER_TOKEN}
       - TWITTER_USERNAME=${TWITTER_USERNAME}
+      - TWEETS_REQ=${TWEETS_REQ}
       - TWEETS_REQ_LIMIT=${TWEETS_REQ_LIMIT}
       - INTERVAL=${INTERVAL}
       - MONGODB=${MONGODB}    
