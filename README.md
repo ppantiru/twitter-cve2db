@@ -11,8 +11,9 @@ Prerequisite:
 - twitter user account
 - bearer token (obtained from https://developer.twitter.com/)
 
-Usage
-To deploy run the start.sh script
+Usage:
+
+To deploy run the start.sh script:
 
 ```
 ./start.sh
@@ -20,7 +21,7 @@ To deploy run the start.sh script
 
 Configuration:
 
-For tweaking the system you can use a .env file in the root directory of this project
+For tweaking the system you can use a `.env` file in the root directory of this project
 
 The only required env variables are:
 - BEARER_TOKEN - the twitter bearer token
