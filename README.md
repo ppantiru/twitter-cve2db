@@ -46,5 +46,12 @@ INTERVAL=30
 ###
 #MongoDB URI
 #MONGODB=mongodb://localhost:27017/cve
-MONGODB='mongodb://user:password@mongo1:27017,mongo2:27017,mongo3:27017/cve?authSource=admin&replicaSet=dbrs&retryWrites=true&w=majority'
+MONGODB='mongodb://admin:password@mongo1:27017,mongo2:27017,mongo3:27017/cve?authSource=admin&replicaSet=dbrs&retryWrites=true&w=majority'
 ```
+
+Security:
+
+Ths databse is set to uses a basic filekey authentication which is not recommended for production use,
+but if you diceide to use it as is remember to at least change the password (default user and password is set in the `rs-init.sh` file)
+
+The worker itself does not expose any ports.
