@@ -21,7 +21,7 @@ const CVE = mongoose.model('CVE', cveSchema);
 
 console.log("Waiting for database...")
 setTimeout(function () {
-    console.lgo('Started!')
+    console.log('Started!')
     startWorker().catch(err => console.log(`Error: the worker has crashed: ${err}`))
 }, 30000)
 
