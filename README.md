@@ -5,7 +5,7 @@ Architecture
 ![cve2db-architecture](https://user-images.githubusercontent.com/8590004/184642927-dc604479-7131-45ac-a12a-287cc6b94aa8.jpg)
 
 Prerequisite:
-- linux server
+- linux
 - docker
 - docker-compose
 - twitter user account
